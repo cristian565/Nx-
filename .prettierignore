@@ -2,3 +2,11 @@
 
 /dist
 /coverage
+
+/apps/booking-gastby/node_modules
+/apps/booking-gastby/public
+/apps/booking-gastby/.cache
+
+/apps/booking-gatsby/node_modules
+/apps/booking-gatsby/public
+/apps/booking-gatsby/.cache

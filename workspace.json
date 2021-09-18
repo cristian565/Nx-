@@ -1,7 +1,221 @@
 {
   "version": 2,
-  "projects": {},
+  "projects": {
+    "booking": {
+      "root": "apps/booking",
+      "sourceRoot": "apps/booking",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/booking",
+            "outputPath": "dist/apps/booking"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "booking:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "booking:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "booking:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/booking"],
+          "options": {
+            "jestConfig": "apps/booking/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/booking/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "booking-gastby": {
+      "root": "apps/booking-gastby",
+      "sourceRoot": "apps/booking-gastby/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/booking-gastby/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "booking-gastby:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "booking-gastby:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/booking-gastby/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/booking-gastby"],
+          "options": {
+            "jestConfig": "apps/booking-gastby/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "booking-gatsby": {
+      "root": "apps/booking-gatsby",
+      "sourceRoot": "apps/booking-gatsby/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/booking-gatsby/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "booking-gatsby:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "booking-gatsby:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/booking-gatsby/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/booking-gatsby"],
+          "options": {
+            "jestConfig": "apps/booking-gatsby/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ecommerce": {
+      "root": "apps/ecommerce",
+      "sourceRoot": "apps/ecommerce",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/ecommerce",
+            "outputPath": "dist/apps/ecommerce"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "ecommerce:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ecommerce:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "ecommerce:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/ecommerce"],
+          "options": {
+            "jestConfig": "apps/ecommerce/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ecommerce/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/next"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/gatsby": {
+      "application": {
+        "style": "css"
+      }
+    }
+  },
+  "defaultProject": "ecommerce"
 }
