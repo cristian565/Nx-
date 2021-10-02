@@ -27,17 +27,24 @@
     ]
   },
   "projects": {
-    "booking": {
-      "tags": []
-    },
-    "booking-gastby": {
-      "tags": []
-    },
-    "booking-gatsby": {
-      "tags": []
-    },
     "ecommerce": {
       "tags": []
+    },
+    "ecommerce-data-access": {
+      "tags": ["type:data-access"]
+    },
+    "ecommerce-e2e": {
+      "tags": [],
+      "implicitDependencies": ["ecommerce"]
+    },
+    "ecommerce-feature-shell": {
+      "tags": ["type:feature-shell"]
+    },
+    "ecommerce-ui": {
+      "tags": ["type:ui"]
+    },
+    "ecommerce-utils": {
+      "tags": ["type:utils"]
     }
   }
 }

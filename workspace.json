@@ -1,148 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "booking": {
-      "root": "apps/booking",
-      "sourceRoot": "apps/booking",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/next:build",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "root": "apps/booking",
-            "outputPath": "dist/apps/booking"
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/next:server",
-          "options": {
-            "buildTarget": "booking:build",
-            "dev": true
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "booking:build:production",
-              "dev": false
-            }
-          }
-        },
-        "export": {
-          "executor": "@nrwl/next:export",
-          "options": {
-            "buildTarget": "booking:build:production"
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/booking"],
-          "options": {
-            "jestConfig": "apps/booking/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/booking/**/*.{ts,tsx,js,jsx}"]
-          }
-        }
-      }
-    },
-    "booking-gastby": {
-      "root": "apps/booking-gastby",
-      "sourceRoot": "apps/booking-gastby/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/booking-gastby/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "booking-gastby:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "booking-gastby:build:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/booking-gastby/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/booking-gastby"],
-          "options": {
-            "jestConfig": "apps/booking-gastby/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "booking-gatsby": {
-      "root": "apps/booking-gatsby",
-      "sourceRoot": "apps/booking-gatsby/src",
-      "projectType": "application",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/booking-gatsby/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "serve": {
-          "executor": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "booking-gatsby:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "booking-gatsby:build:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["apps/booking-gatsby/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/booking-gatsby"],
-          "options": {
-            "jestConfig": "apps/booking-gatsby/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "ecommerce": {
       "root": "apps/ecommerce",
       "sourceRoot": "apps/ecommerce",
@@ -191,6 +49,125 @@
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/ecommerce/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "ecommerce-data-access": {
+      "root": "libs/ecommerce/data-access",
+      "sourceRoot": "libs/ecommerce/data-access/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/ecommerce/data-access/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ecommerce/data-access"],
+          "options": {
+            "jestConfig": "libs/ecommerce/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ecommerce-e2e": {
+      "root": "apps/ecommerce-e2e",
+      "sourceRoot": "apps/ecommerce-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/ecommerce-e2e/cypress.json",
+            "devServerTarget": "ecommerce:serve",
+            "tsConfig": "apps/ecommerce-e2e/tsconfig.json"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ecommerce:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/ecommerce-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "ecommerce-feature-shell": {
+      "root": "libs/ecommerce/feature-shell",
+      "sourceRoot": "libs/ecommerce/feature-shell/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/ecommerce/feature-shell/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ecommerce/feature-shell"],
+          "options": {
+            "jestConfig": "libs/ecommerce/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ecommerce-ui": {
+      "root": "libs/ecommerce/ui",
+      "sourceRoot": "libs/ecommerce/ui/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ecommerce/ui/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ecommerce/ui"],
+          "options": {
+            "jestConfig": "libs/ecommerce/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ecommerce-utils": {
+      "root": "libs/ecommerce/utils",
+      "sourceRoot": "libs/ecommerce/utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/ecommerce/utils/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ecommerce/utils"],
+          "options": {
+            "jestConfig": "libs/ecommerce/utils/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

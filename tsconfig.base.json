@@ -14,7 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@example/ecommerce/data-access": [
+        "libs/ecommerce/data-access/src/index.ts"
+      ],
+      "@example/ecommerce/feature-shell": [
+        "libs/ecommerce/feature-shell/src/index.ts"
+      ],
+      "@example/ecommerce/ui": ["libs/ecommerce/ui/src/index.ts"],
+      "@example/ecommerce/utils": ["libs/ecommerce/utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
